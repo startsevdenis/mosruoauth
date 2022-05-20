@@ -4,7 +4,7 @@
 [![Latest Version](https://img.shields.io/packagist/v/aego/oauth2-mailru.svg)](https://packagist.org/packages/aego/oauth2-mailru)
 [![License](https://img.shields.io/packagist/l/aego/oauth2-mailru.svg)](https://packagist.org/packages/aego/oauth2-mailru)
 
-This package provides [Mail.ru](http://my.mail.ru) integration for [OAuth2 Client](https://github.com/thephpleague/oauth2-client) by the League.
+This package provides [Mos.ru](https://login.mos.ru) integration for [OAuth2 Client](https://github.com/thephpleague/oauth2-client) by the League.
 
 ## Installation
 
