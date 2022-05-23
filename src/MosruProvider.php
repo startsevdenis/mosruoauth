@@ -17,9 +17,21 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class MosruProvider extends AbstractProvider
 {
+    protected $authUrl = 'https://login-tech.mos.ru/sps/oauth/ae';
+    protected $tokenUrl = 'https://login-tech.mos.ru/sps/oauth/te';
+    protected $infoUrl = 'https://login-tech.mos.ru/sps/oauth/me';
+
+    protected $environment = 'production';
+
     public function __construct(array $options = [], array $collaborators = [])
     {
         parent::__construct($options, $collaborators);
+
+        if (isset($options['environment']) && $options['environment'] === 'production') {
+            $this->authUrl = 'https://login.mos.ru/sps/oauth/ae';
+            $this->tokenUrl = 'https://login.mos.ru/sps/oauth/te';
+            $this->infoUrl = 'https://login.mos.ru/sps/oauth/me';
+        }
     }
 
     /**
