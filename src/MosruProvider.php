@@ -156,6 +156,11 @@ class MosruProvider extends AbstractProvider
         return '+';
     }
 
+    protected function getAuthorizationHeaders($token = null)
+    {
+        return ['Authorization' => 'Bearer ' . $token];
+    }
+
     /**
      * Appends a query string to a URL.
      *
