@@ -9,6 +9,7 @@
 ## Установка
 
 ```sh
+composer require knpuniversity/oauth2-client-bundle
 composer require startsevdenis/oauth2-mosru
 ```
 
@@ -40,7 +41,7 @@ use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AuthConroller extends AbstractController
+class AuthController extends AbstractController
 {
 ...
     /**
