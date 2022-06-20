@@ -23,9 +23,15 @@ class MosruProvider extends AbstractProvider
 
     protected $environment = 'production';
 
+    protected $scopes = ['openid', 'profile', 'contacts'];
+
     public function __construct(array $options = [], array $collaborators = [])
     {
         parent::__construct($options, $collaborators);
+
+        if (isset($options['scope']) && is_array($options['scope'])) {
+            $this->scopes = $options['scope'];
+        }
 
         if (isset($options['environment']) && $options['environment'] === 'production') {
             $this->authUrl = 'https://login.mos.ru/sps/oauth/ae';
@@ -119,7 +125,7 @@ class MosruProvider extends AbstractProvider
      */
     protected function getDefaultScopes() :array
     {
-        return ['openid profile contacts'];
+        return $this->scopes;
     }
 
     /**

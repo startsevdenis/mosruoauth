@@ -76,6 +76,22 @@ class MosruResourceOwner implements ResourceOwnerInterface
         return $values['id_token'] ?? null;
     }
 
+    public function getOrganisations()
+    {
+        $data = $this->parseTokenData();
+
+        if (isset($this->parseTokenData()['groups']))
+        {
+            $r = [];
+            foreach ($this->parseTokenData()['groups'] as $item) {
+                $r = new SudirOrganisationInfo($item);
+            }
+        }
+        else {
+            return [];
+        }
+    }
+
     /**
      * Проверка является пользователь организацией (ЮЛ, ИП и т.д.)
      * @return bool

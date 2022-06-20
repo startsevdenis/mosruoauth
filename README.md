@@ -27,6 +27,7 @@ knpu_oauth2_client:
       provider_class: StartsevDenis\OAuth2\Client\Provider\MosruProvider
       provider_options:
         environment: '%env(MOSRU_APP_ENV)%' #production or test
+        scope: [ 'openid', 'profile', 'contacts', 'usr_grps' ] #необязательный параметр scope по умолчанию 'openid', 'profile', 'contacts'
       client_id: '%env(MOSRU_APP_ID)%'
       client_secret: '%env(MOSRU_APP_SECRET)%'
       redirect_route: mosru_check
