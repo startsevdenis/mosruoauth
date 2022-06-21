@@ -76,13 +76,17 @@ class MosruResourceOwner implements ResourceOwnerInterface
         return $values['id_token'] ?? null;
     }
 
+    /**
+     * Список организаций пользователя
+     * @return array
+     */
     public function getOrganisations()
     {
         $r = [];
         if (isset($this->response['groups']) && $this->response['groups'])
         {
             foreach ($this->response['groups'] as $item) {
-                $r = new SudirOrganisationInfo($item);
+                $r[] = new SudirOrganisationInfo($item);
             }
         }
         return $r;
