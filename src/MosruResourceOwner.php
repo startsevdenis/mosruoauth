@@ -78,18 +78,14 @@ class MosruResourceOwner implements ResourceOwnerInterface
 
     public function getOrganisations()
     {
-        $data = $this->parseTokenData();
-
-        if (isset($this->parseTokenData()['groups']))
+        $r = [];
+        if (isset($this->response['groups']) && $this->response['groups'])
         {
-            $r = [];
-            foreach ($this->parseTokenData()['groups'] as $item) {
+            foreach ($this->response['groups'] as $item) {
                 $r = new SudirOrganisationInfo($item);
             }
         }
-        else {
-            return [];
-        }
+        return $r;
     }
 
     /**
